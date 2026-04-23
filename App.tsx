@@ -1,20 +1,34 @@
+import 'react-native-gesture-handler';
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { AppNavigator } from './src/navigation/AppNavigator';
+import { View } from 'react-native';
+
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: '#000000', // Hitam murni
+    card: '#000000',       // Warna background Header navigasi
+    text: '#8DEAE7',       // Warna teks di Header
+    border: '#1a1a1a',
+  },
+};
 
 export default function App() {
+  // Kita tidak perlu memanggil checkStreak lagi di sini
+  // Karena streak sekarang dihitung secara otomatis dari histori latihan
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <View style={{ flex: 1, backgroundColor: '#0f172a' }}>
+        <StatusBar style="light" />
+        <NavigationContainer theme={MyTheme}>
+          <AppNavigator />
+        </NavigationContainer>
+      </View>
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
