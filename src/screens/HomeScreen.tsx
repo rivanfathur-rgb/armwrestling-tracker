@@ -59,7 +59,6 @@ export const HomeScreen = ({ navigation }: Props) => {
               key={prog.id}
               name={prog.name}
               day={prog.scheduledDay}
-              // Catatan: Pastikan di ProgramCard kamu juga mengubah warnanya ke Hitam/Emas
               onPress={() => 
                 navigation.navigate('ProgramDetail', { 
                   programId: prog.id, 
@@ -100,12 +99,12 @@ const styles = StyleSheet.create({
   streakEmoji: { fontSize: 18, marginRight: 5 },
   streakNumber: { color: '#8DEAE7', fontWeight: 'bold', fontSize: 18 },
   streakCard: {
-    backgroundColor: '#0a0a0a', // Background Gelap
+    backgroundColor: '#0a0a0a', 
     borderRadius: 20,
     padding: 20,
     marginBottom: 30,
     borderWidth: 1,
-    borderColor: 'rgb(141, 234, 231)', // Border Emas
+    borderColor: 'rgb(141, 234, 231)', 
   },
   streakTitle: { color: '#8DEAE7', fontSize: 16, fontWeight: 'bold', marginBottom: 15 },
   calendarRow: { flexDirection: 'row', justifyContent: 'space-between' },
