@@ -18,24 +18,24 @@ export const AppNavigator = () => {
       initialRouteName="Home"
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#000000', // Hitam murni untuk Header
-          elevation: 0,               // Hilangkan bayangan di Android
-          shadowOpacity: 0,           // Hilangkan bayangan di iOS
+          backgroundColor: '#000000', 
+          elevation: 0,               
+          shadowOpacity: 0,           
           borderBottomWidth: 1,
-          borderBottomColor: '#1a1a1a', // Garis bawah sangat tipis agar tidak kontras
+          borderBottomColor: '#1a1a1a', 
         },
-        headerTintColor: '#8DEAE7',     // Teks header jadi Emas
+        headerTintColor: '#8DEAE7',     
         headerTitleStyle: { 
           fontWeight: '900',
           fontSize: 20,
         },
-        cardStyle: { backgroundColor: '#000000' }, // Hitam murni untuk semua layar
+        cardStyle: { backgroundColor: '#000000' }, 
       }}
     >
       <Stack.Screen 
         name="Home" 
         component={HomeScreen} 
-        options={{ title: 'ARMWRESLING TRACKER' }} // Judul lebih gahar
+        options={{ title: 'ARMWRESLING TRACKER' }} 
       />
       <Stack.Screen 
         name="ProgramDetail" 
