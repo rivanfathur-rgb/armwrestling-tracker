@@ -10,16 +10,15 @@ const MyTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background: '#000000', // Hitam murni
-    card: '#000000',       // Warna background Header navigasi
-    text: '#8DEAE7',       // Warna teks di Header
+    background: '#000000', 
+    card: '#000000',       
+    text: '#8DEAE7',       
     border: '#1a1a1a',
   },
 };
 
 export default function App() {
-  // Kita tidak perlu memanggil checkStreak lagi di sini
-  // Karena streak sekarang dihitung secara otomatis dari histori latihan
+
 
   return (
     <SafeAreaProvider>
