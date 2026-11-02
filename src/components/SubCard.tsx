@@ -36,7 +36,7 @@ export const SubCard = ({ name, lastWeight, status, onPress }: SubCardProps) => 
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#0a0a0a', // Hitam kartu
+    backgroundColor: '#0a0a0a', 
     padding: 20,
     borderRadius: 15,
     marginBottom: 12,
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#1a1a1a', // Border gelap agar clean
+    borderColor: '#1a1a1a', 
   },
   name: { 
     color: '#fff', 
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     marginTop: 4 
   },
   goldText: {
-    color: '#8DEAE7', // Berat terakhir jadi warna emas
+    color: '#8DEAE7', 
     fontWeight: 'bold',
   },
   statusBadge: { 
