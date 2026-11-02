@@ -4,8 +4,8 @@ import Svg, { Path, Circle } from 'react-native-svg';
 
 interface ProgressChartProps {
   data: number[];
-  color?: string; // Warna garis dan titik
-  unit?: string;  // Satuan (kg atau vol)
+  color?: string; 
+  unit?: string;  
 }
 
 const { width } = Dimensions.get('window');
@@ -25,14 +25,12 @@ export const ProgressChart = ({ data, color = "#6366f1", unit = "kg" }: Progress
   const minVal = Math.min(...data);
   const range = maxVal - minVal || 1;
 
-  // Menghitung titik koordinat X dan Y
   const points = data.map((val, index) => {
     const x = (index / (data.length - 1)) * CHART_WIDTH;
     const y = CHART_HEIGHT - ((val - minVal) / range) * CHART_HEIGHT;
     return { x, y };
   });
 
-  // Membuat jalur (path) garis
   const d = points.reduce(
     (acc, point, i) => (i === 0 ? `M ${point.x} ${point.y}` : `${acc} L ${point.x} ${point.y}`),
     ''
@@ -56,7 +54,7 @@ export const ProgressChart = ({ data, color = "#6366f1", unit = "kg" }: Progress
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#1e293b', // Sedikit lebih terang dari background utama agar kontras
+    backgroundColor: '#1e293b', 
     padding: 20,
     borderRadius: 15,
     alignItems: 'center',
