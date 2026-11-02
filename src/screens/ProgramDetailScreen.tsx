@@ -69,7 +69,6 @@ export const ProgramDetailScreen = ({ route, navigation }: Props) => {
           />
         )}
 
-        // MENAMPILKAN HISTORI GLOBAL DI BAWAH DAFTAR LATIHAN
         ListFooterComponent={
           <View style={styles.globalHistoryContainer}>
             <Text style={styles.historyTitle}>Histori Sesi Sebelumnya</Text>
@@ -80,9 +79,9 @@ export const ProgramDetailScreen = ({ route, navigation }: Props) => {
                   
                   {/* Tambahkan .slice().reverse() agar yang terbaru di atas */}
                   {ex.history
-                    .slice() // Copy array agar tidak merusak data asli
-                    .sort((a, b) => b.timestamp - a.timestamp) // Sortir: Terbaru (besar) ke Lama (kecil)
-                    .slice(0, 3) // Ambil 3 teratas setelah disortir
+                    .slice() 
+                    .sort((a, b) => b.timestamp - a.timestamp) 
+                    .slice(0, 3) 
                     .map((h) => (
                       <View key={h.id} style={styles.historyRow}>
                         <Text style={styles.historyDate}>
@@ -116,7 +115,7 @@ const styles = StyleSheet.create({
   addBtnText: { color: '#000', fontSize: 24, fontWeight: 'bold' },
   list: { paddingHorizontal: 20, paddingBottom: 120 },
   
-  // Styles untuk Histori Global
+  
   globalHistoryContainer: { marginTop: 30, paddingBottom: 20 },
   historyTitle: { color: '#a3a3a3', fontSize: 16, fontWeight: 'bold', marginBottom: 15, textTransform: 'uppercase' },
   historyCard: { backgroundColor: '#0a0a0a', padding: 15, borderRadius: 15, marginBottom: 15, borderLeftWidth: 4, borderLeftColor: '#8DEAE7' },
