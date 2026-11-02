@@ -3,7 +3,7 @@ import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { WorkoutState, SetEntry, Exercise } from '../types';
 
-// Helper untuk menghitung selisih hari murni (tanpa jam/menit)
+
 const getDiffDays = (date1: Date, date2: Date) => {
   const d1 = new Date(date1);
   d1.setHours(0, 0, 0, 0);
@@ -19,7 +19,7 @@ interface WorkoutStore extends Omit<WorkoutState, 'streak'> {
   deleteSet: (programId: string, exerciseId: string, setId: string, isHistory: boolean) => void;
   editSet: (programId: string, exerciseId: string, setId: string, weight: number, reps: number) => void;
   clearHistory: (programId: string, exerciseId: string) => void;
-  getStreak: () => number; // Fungsi dinamis baru
+  getStreak: () => number; 
 }
 
 export const useWorkoutStore = create<WorkoutStore>()(
@@ -37,7 +37,7 @@ export const useWorkoutStore = create<WorkoutStore>()(
         const state = get();
         const allTimestamps: number[] = [];
         
-        // Kumpulkan semua waktu latihan dari histori seluruh program
+        
         state.programs.forEach(p => {
           p.exercises.forEach(ex => {
             ex.history.forEach(h => allTimestamps.push(h.timestamp));
@@ -46,7 +46,7 @@ export const useWorkoutStore = create<WorkoutStore>()(
 
         if (allTimestamps.length === 0) return 0;
 
-        // Ambil tanggal unik, urutkan dari yang terbaru
+        
         const uniqueDates = Array.from(new Set(
           allTimestamps.map(t => new Date(t).toDateString())
         )).map(d => new Date(d)).sort((a, b) => b.getTime() - a.getTime());
@@ -54,7 +54,7 @@ export const useWorkoutStore = create<WorkoutStore>()(
         const today = new Date();
         const diffFromLatest = getDiffDays(today, uniqueDates[0]);
 
-        // Jika hari ini belum latihan DAN kemarin juga tidak latihan, streak mati (0)
+        
         if (diffFromLatest > 1) return 0;
 
         let streak = 1;
@@ -63,7 +63,7 @@ export const useWorkoutStore = create<WorkoutStore>()(
           if (diff === 1) {
             streak++;
           } else {
-            break; // Ada hari yang bolong
+            break; 
           }
         }
         return streak;
@@ -120,7 +120,7 @@ export const useWorkoutStore = create<WorkoutStore>()(
           .find(p => p.id === programId)
           ?.exercises.find(ex => ex.id === exerciseId);
 
-        // Jika tidak ada data yang dimasukkan, sesi tidak bisa diselesaikan (mencegah streak palsu)
+        
         if (!currentExercise || currentExercise.activeSets.length === 0) return;
 
         set((state) => ({
