@@ -12,7 +12,6 @@ export const ProgramCard = ({ name, day, onPress }: ProgramCardProps) => {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.7}>
       <View>
-        {/* Teks Nama Program pakai Emas Terang */}
         <Text style={styles.title}>{name}</Text>
         <Text style={styles.subtitle}>{day}</Text>
       </View>
@@ -38,7 +37,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // Efek elevasi tipis agar kartu tidak tenggelam di background hitam
     elevation: 2,
   },
   title: {
@@ -47,7 +45,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   subtitle: {
-    color: '#a3a3a3', // Abu-abu netral agar tidak nabrak emasnya
+    color: '#a3a3a3', 
     fontSize: 14,
     marginTop: 4,
   },
